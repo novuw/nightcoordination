@@ -1,14 +1,8 @@
 /* styles */
 /* called by your view template */
-h1{
-font-family: Verdana;
-color: white;
+input:focus{
+  outline: none;
 }
-h2{
-  color: white;
-  font-size: 25;
-}
-body{
-background-color: black;
-  text-align: center;
+p{
+  font-family: Muli;
 }
