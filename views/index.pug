@@ -1,0 +1,16 @@
+doctype html  
+
+
+
+html(lang='en')  
+ head
+   title Night Coordinator
+ body
+   if user 
+     p Hello #{user.username}
+     img(src=user.photos[0].value)
+     
+     
+     
+   else
+     a(href='/twitter/login') Login using Twitter!
