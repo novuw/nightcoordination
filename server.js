@@ -69,7 +69,9 @@ app.get('/twitter/return', passport.authenticate('twitter', {
 }), function(req, res){
   res.redirect('/');
 });
-
+/*app.post('/indexx', function(req, res){
+  res.render("indexx");
+});*/
 
 
 
