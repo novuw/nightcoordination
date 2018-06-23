@@ -1,0 +1,14 @@
+/* styles */
+/* called by your view template */
+h1{
+font-family: Verdana;
+color: white;
+}
+h2{
+  color: white;
+  font-size: 25;
+}
+body{
+background-color: black;
+  text-align: center;
+}
