@@ -8,6 +8,7 @@ var passport = require('passport');
 var Strategy = require('passport-twitter').Strategy;
 var session = require('express-session');
 var path = require('path');
+
 //https://www.npmjs.com/package/passport
 //https://www.npmjs.com/package/passport-twitter
 
@@ -63,6 +64,7 @@ app.get('/', function(req, res){
   //res.sendFile(__dirname + '/views/index.html');
   res.render("index", {user: req.user});
 });
+
 app.get('/twitter/login', passport.authenticate('twitter'));
 app.get('/twitter/return', passport.authenticate('twitter', {
   failureRedirect: '/'
