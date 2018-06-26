@@ -18,12 +18,12 @@ html(lang='en')
        p(id="demo")
        form()
          input(name="rad" autocomplete="off" id="place" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px", "margin-top": "30px"} placeholder="Choose a type of place!")
-         br
+         //br
          input(name="lat" autocomplete="off" id="lat" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Latitude")
-         br
+         //br
          input(name="long" autocomplete="off" id="long" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Longitude")
          br
-         input(type="submit" class="btn btn-success" style={"margin-top": '1%'})
+         input(type="submit" class="btn btn-success" style={"margin-top": '2%'})
        div(style={width: "15%", border: "1px solid black", "margin-top": "40px", "border-radius": "25px"})
          p(style={"margin-top": "15px"}) Current User: #{user.username}
          p Profile Pic:
@@ -36,49 +36,49 @@ html(lang='en')
        h3 Find a venue for tonight!
        form()
          input(name="rad" autocomplete="off" id="place" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px", "margin-top": "30px"} placeholder="Choose a type of place!")
-         br
+         //br
          input(name="lat" autocomplete="off" id="lat" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Latitude")
-         br
+         //br
          input(name="long" autocomplete="off" id="long" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Longitude")
          br
-         input(type="submit" class="btn btn-success" style={"margin-top": '1%'})
+         input(type="submit" class="btn btn-success" style={"margin-top": '2%'})
        a(href='/twitter/login' class="btn btn-primary" style={"margin-top": "20px"}) Login using Twitter!
          img(src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" style=({width: "20px"}))
        br
        p(id="coords")
        br
        div(class="well" style={width: '30%'})
-         p Name: #{loadDetails[0].name}
-         p Address: #{loadDetails[0].address}
-         p Phone: #{loadDetails[0].phone}
+         h1(style={'text-decoration': 'underline'}) #{loadDetails[0].name}
+         h2 Address: #{loadDetails[0].address}
+         h3 Phone: #{loadDetails[0].phone}
        div(class="well" style={width: '30%'})
-         p Name: #{loadDetails[1].name}
-         p Address: #{loadDetails[1].address}
-         p Phone: #{loadDetails[1].phone}
+         h1(style={'text-decoration': 'underline'}) #{loadDetails[1].name}
+         h2 Address: #{loadDetails[1].address}
+         h3 Phone: #{loadDetails[1].phone}
        div(class="well" style={width: '30%'})
-         p Name: #{loadDetails[2].name}
-         p Address: #{loadDetails[2].address}
-         p Phone: #{loadDetails[2].phone}
+         h1(style={'text-decoration': 'underline'}) #{loadDetails[2].name}
+         h2 Address: #{loadDetails[2].address}
+         h3 Phone: #{loadDetails[2].phone}
        div(class="well" style={width: '30%'})
-         p Name: #{loadDetails[3].name}
-         p Address: #{loadDetails[3].address}
-         p Phone: #{loadDetails[3].phone}
+         h1(style={'text-decoration': 'underline'}) #{loadDetails[3].name}
+         h2 Address: #{loadDetails[3].address}
+         h3 Phone: #{loadDetails[3].phone}
        div(class="well" style={width: '30%'})
-         p Name: #{loadDetails[4].name}
-         p Address: #{loadDetails[4].address}
-         p Phone: #{loadDetails[4].phone} 
+         h1(style={'text-decoration': 'underline'}) #{loadDetails[4].name}
+         h2 Address: #{loadDetails[4].address}
+         h3 Phone: #{loadDetails[4].phone} 
      else
        h1(style={"text-align": center, "font-family": "Muli"}) Night Coordinator
        h3 Find a venue for tonight!
        center
        form()
          input(name="rad" autocomplete="off" id="place" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px", "margin-top": "30px"} placeholder="Choose a type of place!")
-         br
+         //br
          input(name="lat" autocomplete="off" id="lat" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Latitude")
-         br
+         //br
          input(name="long" autocomplete="off" id="long" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Longitude")
          br
-         input(type="submit" class="btn btn-success" style={"margin-top": '1%'})
+         input(type="submit" class="btn btn-success" style={"margin-top": '2%'})
        a(href='/twitter/login' class="btn btn-primary" style={"margin-top": "20px"}) Login using Twitter!
          img(src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" style=({width: "20px"}))
        br
