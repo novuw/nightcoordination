@@ -15,6 +15,6 @@ h3{
 .well{
   background-color: #7893bc;
 }
-#lat, #long{
+#lat, #long, #sign{
   display: none;
 }

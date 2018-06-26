@@ -32,6 +32,7 @@ var loadDetails = {
       phone: ""
      }
 };
+var userDetails = {};
 //https://www.npmjs.com/package/passport
 //https://www.npmjs.com/package/passport-twitter
 
@@ -86,7 +87,30 @@ app.set('view engine', 'pug');
 app.get('/', function(req, res){
   if (req.query.rad == undefined){
     res.render("index", {user: req.user});
-  } else{
+  } else if(req.query.signed != undefined){
+    client.search({
+      term: req.query.rad,
+      latitude: parseFloat(req.query.lat),
+      longitude: parseFloat(req.query.long),
+      radius: 20000,
+      limit: 5
+    }).then(response => {
+      console.log(response.jsonBody.businesses);
+      //setup object creation
+      for (var i = 0; i < response.jsonBody.businesses.length; i++){
+          loadDetails[i].name = response.jsonBody.businesses[i].name
+          loadDetails[i].address = response.jsonBody.businesses[i].location.address1;
+          loadDetails[i].phone = response.jsonBody.businesses[i].phone;
+      }
+      console.log(loadDetails);
+      userDetails = {1: loadDetails, 2: req.user};
+      res.render("index", {userDetails});
+    }).catch(e => {
+      console.log(e);
+   });
+            
+            
+  }else{
   client.search({
       term: req.query.rad,
       latitude: parseFloat(req.query.lat),

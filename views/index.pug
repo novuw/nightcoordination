@@ -12,7 +12,8 @@ html(lang='en')
    title Night Coordinator
  body(class="bg-success" style={color: 'black', "font-family": "Muli"})
    center
-     if user 
+     if userDetails
+       p #{userDetails[2].username}
        h1(style={"text-align": center, "font-family": "Muli"}) Night Coordinator
        h3 Find a venue for tonight!
        p(id="demo")
@@ -23,6 +24,53 @@ html(lang='en')
          input(name="lat" autocomplete="off" id="lat" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Latitude")
          //br
          input(name="long" autocomplete="off" id="long" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Longitude")
+         input(name="signed" autocomplete="off" value="true" id="sign" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Logged in?")
+         //br
+         input(type="submit" class="btn btn-success" style={"margin-top": '0.5%'})
+       div(style={width: "15%", border: "1px solid black", "margin-top": "30px", "border-radius": "25px"})
+         p(style={"margin-top": "15px"}) Current User: #{userDetails[2].username}
+         p Profile Pic:
+           img(src=userDetails[2].photos[0].value style={"margin-left": "10px"})
+       br
+       div(class="well" style={width: '30%'})
+         h1(style={'text-decoration': 'underline'}) #{userDetails[1][0].name}
+         h2 Address: #{userDetails[1][0].address}
+         h3 Phone: #{userDetails[1][0].phone}
+       div(class="well" style={width: '30%'})
+         h1(style={'text-decoration': 'underline'}) #{userDetails[1][1].name}
+         h2 Address: #{userDetails[1][1].address}
+         h3 Phone: #{userDetails[1][1].phone}
+       div(class="well" style={width: '30%'})
+         h1(style={'text-decoration': 'underline'}) #{userDetails[1][2].name}
+         h2 Address: #{userDetails[1][2].address}
+         h3 Phone: #{userDetails[1][2].phone}
+       div(class="well" style={width: '30%'})
+         h1(style={'text-decoration': 'underline'}) #{userDetails[1][3].name}
+         h2 Address: #{userDetails[1][3].address}
+         h3 Phone: #{userDetails[1][3].phone}
+       div(class="well" style={width: '30%'})
+         h1(style={'text-decoration': 'underline'}) #{userDetails[1][4].name}
+         h2 Address: #{userDetails[1][4].address}
+         h3 Phone: #{userDetails[1][4].phone}
+       
+       
+     else if user
+       script.
+         var workflow = {
+         name: '#{user.username}'
+         };
+         //$('#sign').val(workflow.name);
+       h1(style={"text-align": center, "font-family": "Muli"}) Night Coordinator
+       h3 Find a venue for tonight!
+       p(id="demo")
+       form()
+         input(name="rad" autocomplete="off" id="place" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px", "margin-top": "30px"} placeholder="Choose a type of place!")
+         //br
+         p Examples: "food", "restaurant", "bar", "ice cream"
+         input(name="lat" autocomplete="off" id="lat" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Latitude")
+         //br
+         input(name="long" autocomplete="off" id="long" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Longitude")
+         input(name="signed" autocomplete="off" value="true" id="sign" style={"background-color": "transparent", "border-bottom":"2px solid black", "border-top": "0px", "border-right": "0px", "border-left": "0px"} placeholder="Logged in?")
          //br
          input(type="submit" class="btn btn-success" style={"margin-top": '0.5%'})
        div(style={width: "15%", border: "1px solid black", "margin-top": "40px", "border-radius": "25px"})
