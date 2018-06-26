@@ -6,3 +6,15 @@ input:focus{
 p{
   font-family: Muli;
 }
+h2{
+  font-size: 25px;
+}
+h3{
+  font-size: 20px;
+}
+.well{
+  background-color: #7893bc;
+}
+#lat, #long{
+  display: none;
+}
