@@ -4,7 +4,17 @@ dependencies:
   passport: 0.4.0
   passport-twitter: 1.0.4
   pug: 2.0.3
+  yelp-fusion: 2.0.3
 packages:
+  /@tonybadguy/call-me-maybe/2.0.1:
+    dependencies:
+      caseless: 0.11.0
+      error: 7.0.2
+      small-request: 2.0.2
+      string-template: 1.0.0
+    dev: false
+    resolution:
+      integrity: sha1-IzJn6woWJcL1lU8nrzZLSinG40Q=
   /@types/babel-types/7.0.4:
     dev: false
     resolution:
@@ -109,6 +119,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-m7UwTS4LVmmLLHWLCKPqqdqlijk=
+  /caseless/0.11.0:
+    dev: false
+    resolution:
+      integrity: sha1-cVuW6phBWTzDMGeSP17GDr2k99c=
   /center-align/0.1.3:
     dependencies:
       align-text: 0.1.4
@@ -221,6 +235,13 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /error/7.0.2:
+    dependencies:
+      string-template: 0.2.1
+      xtend: 4.0.1
+    dev: false
+    resolution:
+      integrity: sha1-pfdf/02ZJhJt2sDqXcOOaJFTywI=
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -680,6 +701,12 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-jcrkcOHIirwtYA//Sndihtp15jc=
+  /request-function/2.0.0:
+    dependencies:
+      error: 7.0.2
+    dev: false
+    resolution:
+      integrity: sha1-J6rOJ/hx48L9SKGdrXXKOExLhlQ=
   /resolve/1.8.1:
     dependencies:
       path-parse: 1.0.5
@@ -737,6 +764,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==
+  /small-request/2.0.2:
+    dependencies:
+      request-function: 2.0.0
+    dev: false
+    resolution:
+      integrity: sha1-pEuo2G+i3iTBaAhSaMVn+IUDBlM=
   /source-map/0.5.7:
     dev: false
     engines:
@@ -749,6 +782,14 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-zhSCtt8v2NDrRlPQpCNtw/heZLtfUDqxBM1udqikb/Hbk52LK4nQSwr10u77iopCW5LsyHpuXS0GnEc48mLeew==
+  /string-template/0.2.1:
+    dev: false
+    resolution:
+      integrity: sha1-QpMuWYo1LQH8IuwzZ9nYTuxsmt0=
+  /string-template/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-np8iM9wA8hhxjsN5oopWc+zKi5Y=
   /to-fast-properties/1.0.3:
     dev: false
     engines:
@@ -841,6 +882,12 @@ packages:
       node: '>=0.1'
     resolution:
       integrity: sha1-1QH5ezvbQDr4757MIFcxh6rawOk=
+  /xtend/4.0.1:
+    dev: false
+    engines:
+      node: '>=0.4'
+    resolution:
+      integrity: sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
   /xtraverse/0.1.0:
     dependencies:
       xmldom: 0.1.27
@@ -858,6 +905,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-9+572FfdfB0tOMDnTvvWgdFDH9E=
+  /yelp-fusion/2.0.3:
+    dependencies:
+      '@tonybadguy/call-me-maybe': 2.0.1
+    dev: false
+    resolution:
+      integrity: sha1-cB7yyQLqyM9LK6U92VKnDYeCRPg=
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 7
 shrinkwrapVersion: 3
@@ -867,3 +920,4 @@ specifiers:
   passport: ^0.4.0
   passport-twitter: ^1.0.4
   pug: ^2.0.3
+  yelp-fusion: ^2.0.3

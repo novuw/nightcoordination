@@ -8,7 +8,30 @@ var passport = require('passport');
 var Strategy = require('passport-twitter').Strategy;
 var session = require('express-session');
 var path = require('path');
-
+const yelp = require('yelp-fusion');
+const client = yelp.client(process.env.apiKey);
+var loadDetails = {
+  0: {name: "",
+      address: "",
+      phone: ""
+     },
+  1: {name: "",
+      address: "",
+      phone: ""
+     },
+  2: {name: "",
+      address: "",
+      phone: ""
+     },
+  3: {name: "",
+      address: "",
+      phone: ""
+     },
+  4: {name: "",
+      address: "",
+      phone: ""
+     }
+};
 //https://www.npmjs.com/package/passport
 //https://www.npmjs.com/package/passport-twitter
 
@@ -61,10 +84,30 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
-  //res.sendFile(__dirname + '/views/index.html');
-  res.render("index", {user: req.user});
+  if (req.query.rad == undefined){
+    res.render("index", {user: req.user});
+  } else{
+  client.search({
+      term: req.query.rad,
+      latitude: parseFloat(req.query.lat),
+      longitude: parseFloat(req.query.long),
+      radius: 20000,
+      limit: 5
+    }).then(response => {
+      console.log(response.jsonBody.businesses);
+      //setup object creation
+      for (var i = 0; i < response.jsonBody.businesses.length; i++){
+          loadDetails[i].name = response.jsonBody.businesses[i].name
+          loadDetails[i].address = response.jsonBody.businesses[i].location.address1;
+          loadDetails[i].phone = response.jsonBody.businesses[i].phone;
+      }
+      console.log(loadDetails);  
+      res.render("index", {loadDetails});
+    }).catch(e => {
+      console.log(e);
+   });
+  }
 });
-
 app.get('/twitter/login', passport.authenticate('twitter'));
 app.get('/twitter/return', passport.authenticate('twitter', {
   failureRedirect: '/'
@@ -74,7 +117,6 @@ app.get('/twitter/return', passport.authenticate('twitter', {
 /*app.post('/indexx', function(req, res){
   res.render("indexx");
 });*/
-
 
 
 // listen for requests :)
