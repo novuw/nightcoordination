@@ -9,6 +9,7 @@ var Strategy = require('passport-twitter').Strategy;
 var session = require('express-session');
 var path = require('path');
 const yelp = require('yelp-fusion');
+var publicBoard;
 const client = yelp.client(process.env.apiKey);
 var loadDetails = {
   0: {name: "",
@@ -42,6 +43,18 @@ function insertGoing(user, venue){
      var db = mongoclient.db('nightcoord');
      var venues = db.collection('venues');
      venues.insert({'name': user, 'place': venue});
+     mongoclient.close();
+  });
+}
+function listGoing(){
+  MongoClient.connect(url, function(err, mongoclient){
+     var db = mongoclient.db('nightcoord');
+     var venues = db.collection('venues');
+     venues.find().toArray(function(err, documents){
+        if (err) throw err;
+        console.log(documents);
+        publicBoard = documents;
+    });
      mongoclient.close();
   });
 }
@@ -95,7 +108,8 @@ app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
   if (req.query.rad == undefined){
-    res.render("index", {user: req.user});
+    listGoing();
+    res.render("index", {user: req.user, going: publicBoard});
   } else if(req.query.signed != undefined){
     client.search({
       term: req.query.rad,
@@ -151,9 +165,8 @@ app.get('/twitter/return', passport.authenticate('twitter', {
   res.render("indexx");
 });*/
 app.get('/going', function(req, res){
-   insertGoing(req.query.name,req.query.venue);
-   console.log('yeet');
-   res.render("index");
+  insertGoing(req.query.name,req.query.venue);
+  res.redirect('https://nightcoordination.glitch.me');
 });
 
 // listen for requests :)

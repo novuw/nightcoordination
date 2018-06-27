@@ -102,11 +102,26 @@ html(lang='en')
          //br
          input(type="submit" class="btn btn-success" style={"margin-top": '0.5%'})
        div(style={width: "15%", border: "1px solid black", "margin-top": "40px", "border-radius": "25px"})
-         p(style={"margin-top": "15px"}) Current User: #{user.username}
-         p Profile Pic:
+         p(style={"margin-top": "15px",'font-weight': 'bold'}) Current User: #{user.username}
+         p(style={'font-weight': 'bold'}) Profile Pic:
            img(src=user.photos[0].value style={"margin-left": "10px"})
        br
-       p(id="coords")
+       div(id="going" class="well" style={width: '30%', 'border-radius': '25px', 'background-color': '#f4f4f4'})
+         h1(style={'text-decoration': 'underline'}) Last Five Parties
+         p(style={'font-weight': 'bold'}) Name: #{going[0].name}
+         p(style={'font-weight': 'bold'}) Place: #{going[0].place}
+         br
+         p(style={'font-weight': 'bold'}) Name: #{going[1].name}
+         p(style={'font-weight': 'bold'}) Place: #{going[1].place}
+         br
+         p(style={'font-weight': 'bold'}) Name: #{going[2].name}
+         p(style={'font-weight': 'bold'}) Place: #{going[2].place}
+         br
+         p(style={'font-weight': 'bold'}) Name: #{going[2].name}
+         p(style={'font-weight': 'bold'}) Place: #{going[2].place}
+         br
+         p(style={'font-weight': 'bold'}) Name: #{going[2].name}
+         p(style={'font-weight': 'bold'}) Place: #{going[2].place}
      else if loadDetails
       center
        h1(style={"text-align": center, "font-family": "Muli"}) Night Coordinator
