@@ -37,7 +37,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://' + process.env.dbuser + ':' + process.env.dbpswd + '@ds117701.mlab.com:17701/nightcoord';
 //https://www.npmjs.com/package/passport
 //https://www.npmjs.com/package/passport-twitter
-function insertGoing(venue, user){
+function insertGoing(user, venue){
   MongoClient.connect(url, function(err, mongoclient){
      var db = mongoclient.db('nightcoord');
      var venues = db.collection('venues');
@@ -151,8 +151,9 @@ app.get('/twitter/return', passport.authenticate('twitter', {
   res.render("indexx");
 });*/
 app.get('/going', function(req, res){
-   //insertGoing('name', 'place');
-    res.end();
+   insertGoing(req.query.name,req.query.venue);
+   console.log('yeet');
+   res.render("index");
 });
 
 // listen for requests :)
