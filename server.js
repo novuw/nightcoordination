@@ -33,9 +33,18 @@ var loadDetails = {
      }
 };
 var userDetails = {};
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://' + process.env.dbuser + ':' + process.env.dbpswd + '@ds117701.mlab.com:17701/nightcoord';
 //https://www.npmjs.com/package/passport
 //https://www.npmjs.com/package/passport-twitter
-
+function insertGoing(venue, user){
+  MongoClient.connect(url, function(err, mongoclient){
+     var db = mongoclient.db('nightcoord');
+     var venues = db.collection('venues');
+     venues.insert({'name': user, 'place': venue});
+     mongoclient.close();
+  });
+}
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 passport.use(new Strategy({
@@ -141,7 +150,10 @@ app.get('/twitter/return', passport.authenticate('twitter', {
 /*app.post('/indexx', function(req, res){
   res.render("indexx");
 });*/
-
+app.get('/going', function(req, res){
+   //insertGoing('name', 'place');
+    res.end();
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
